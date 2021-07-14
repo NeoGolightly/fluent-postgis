@@ -51,7 +51,7 @@ extension GeographicGeometryCollection2D: GeometryConvertible, GeometryCollectab
     }
     
     public init(from decoder: Decoder) throws {
-        let value = try decoder.singleValueContainer().decode(Data.self)
+        let value = try decoder.singleValueContainer().decode(String.self)
         let wkbGeometry: GeometryCollection = try WKTDecoder().decode(from: value)
         self.init(geometry: wkbGeometry)
     }
