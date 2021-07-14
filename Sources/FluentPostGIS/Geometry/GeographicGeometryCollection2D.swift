@@ -50,18 +50,18 @@ extension GeographicGeometryCollection2D: GeometryConvertible, GeometryCollectab
         return self.geometry
     }
     
-    public init(from decoder: Decoder) throws {
-        let value = try decoder.singleValueContainer().decode(String.self)
-        let wkbGeometry: GeometryCollection = try WKTDecoder().decode(from: value)
-        self.init(geometry: wkbGeometry)
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        let wktEncoder = WKTEncoder()
-        let value = wktEncoder.encode(geometry)
-        var container = encoder.singleValueContainer()
-        try container.encode(value)
-    }
+//    public init(from decoder: Decoder) throws {
+//        let value = try decoder.singleValueContainer().decode(String.self)
+//        let wkbGeometry: GeometryCollection = try WKTDecoder().decode(from: value)
+//        self.init(geometry: wkbGeometry)
+//    }
+//    
+//    public func encode(to encoder: Encoder) throws {
+//        let wktEncoder = WKTEncoder()
+//        let value = wktEncoder.encode(geometry)
+//        var container = encoder.singleValueContainer()
+//        try container.encode(value)
+//    }
     
     public static func == (lhs: GeographicGeometryCollection2D, rhs: GeographicGeometryCollection2D) -> Bool {
         guard lhs.geometries.count == rhs.geometries.count else {
